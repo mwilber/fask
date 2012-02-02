@@ -198,13 +198,17 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /* =============================================================================
    Primary styles
-   Author: 
+   Author: Matthew Wilber mwilber@gmail.com
    ========================================================================== */
 
 
+#main{
+	width:520px;
+}
 
-
-
+#fb-root{
+	clear:both;
+}
 
 
 

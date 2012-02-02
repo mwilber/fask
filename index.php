@@ -7,9 +7,15 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title></title>
+	<title>FacebookAppStarter</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<meta property="og:title" content="FacebookAppStarter" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://fask.herokuapp.com/" />
+	<meta property="og:image" content="https://fask.herokuapp.com/images/fask.png" />
+	<meta property="og:site_name" content="https://fask.herokuapp.com/" />
+	<meta property="fb:admins" content="631337813" />
 
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -20,17 +26,16 @@
 <body>
 
 <div id="container">
-	<header>
-
-	</header>
 	<div id="main" role="main">
-
+		<h1>Basic Sharing (no extended permissions required)</h1>
+		<ul>
+			<li><a href="#" onclick="WallPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png', 'FASK', 'Spread the word!'); return false;">Wall Post</a></li>
+		</ul>
 	</div>
-	<footer>
-
-	</footer>
+	<div id="fb-root"></div>
 </div> <!--! end of #container -->
 
+<script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>	
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
