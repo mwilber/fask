@@ -22,6 +22,15 @@
 	<link rel="stylesheet" href="css/style.css">
 
 	<script src="js/libs/modernizr-2.0.6.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		var facebookappid = '130551640347075';
+		//var facebookuserid = '<?php echo time(); ?>';
+		var logintarget = 'https://apps.facebook.com/appstarterkit/';
+
+	</script>
+	
 </head>
 <body>
 
