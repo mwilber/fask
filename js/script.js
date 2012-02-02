@@ -2,8 +2,8 @@
 
 */
 
-
-function WallPost(pLink, pTitle, pDescription, pImage, pCaption, pMessage){
+// Publish to the users wall
+function WallPost(pLink, pTitle, pDescription, pImage, pCaption){
 	FB.ui(
 		{
 			method: 'feed',
@@ -12,13 +12,49 @@ function WallPost(pLink, pTitle, pDescription, pImage, pCaption, pMessage){
 			picture: pImage,
 			caption: pCaption,
 			description: pDescription,
-			message: pMessage,
 		},
 		function(response) {
 			if (response && response.post_id) {
 				alert('Post was published.');
 			} else {
 				alert('Post was not published.');
+			}
+		}
+	);
+}
+
+// Send a private message to friends and email addresses
+function ShareMessage(pLink, pTitle, pDescription, pImage){
+	FB.ui(
+		{
+			method: 'share',
+			name: pTitle,
+			link: pLink,
+			picture: pImage,
+			description: pDescription,
+		},
+		function(response) {
+			if (response && response.post_id) {
+				alert('Message was sent.');
+			} else {
+				alert('Message was not sent.');
+			}
+		}
+	);
+}
+
+// Send an invitation to the app
+function SendInvite(pMessage){
+	FB.ui(
+		{
+			method: 'apprequests',
+			message: pMessage,
+		},
+		function(response) {
+			if (response && response.post_id) {
+				alert('Invite was sent.');
+			} else {
+				alert('Invite was not sent.');
 			}
 		}
 	);
