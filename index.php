@@ -38,7 +38,9 @@
 	<div id="main" role="main">
 		<h1>Basic Sharing (no extended permissions required)</h1>
 		<ul>
-			<li><a href="#" onclick="WallPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png', 'FASK', 'Spread the word!'); return false;">Wall Post</a></li>
+			<li><a href="#" onclick="WallPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Wall Post</a></li>
+			<li><a href="#" onclick="ShareMessage('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png'); return false;">Private Message</a></li>
+			<li><a href="#" onclick="SendInvite('All the facebook basics'); return false;">App Invite</a></li>
 		</ul>
 	</div>
 	<div id="fb-root"></div>
