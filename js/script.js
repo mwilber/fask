@@ -60,6 +60,14 @@ function SendInvite(pMessage){
 	);
 }
 
+// Resize the facebook iframe to match the height of the div #page
+function SetFrame(){
+	var docheight = $("#container").height();
+	// Override detected height
+	//docheight = 1000;
+	FB.Canvas.setSize({ width: 515, height: docheight });
+}
+
 
 $(document).ready(function(){
 	
