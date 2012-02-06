@@ -42,6 +42,9 @@
 			<li><a href="#" onclick="ShareMessage('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png'); return false;">Private Message</a></li>
 			<li><a href="#" onclick="SendInvite('All the facebook basics'); return false;">App Invite</a></li>
 		</ul>
+		<ul>
+			<li><a href="#" onclick="AddToPage();">Add To Page</a></li>
+		</ul>
 	</div>
 	<div id="fb-root"></div>
 </div> <!--! end of #container -->
