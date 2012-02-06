@@ -37,7 +37,7 @@ function openpopup(url,name,width,height)
 
 function AddToPage(){
 	var addurl = 'http://www.facebook.com/dialog/pagetab?app_id='+facebookappid+'&next='+window.location;
-	openpopup(addurl,'AddToPage',600,300);
+	openpopup(addurl,'AddToPage',800,600);
 }
 
 // Publish to the users wall
