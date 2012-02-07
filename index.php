@@ -1,3 +1,21 @@
+<?php
+	$likesPage = false;
+	$signed_request = $_REQUEST['signed_request'];
+
+	function parsePageSignedRequest() {
+		if (isset($_REQUEST['signed_request'])) {
+			$encoded_sig = null;
+			$payload = null;
+			list($encoded_sig, $payload) = explode('.', $_REQUEST['signed_request'], 2);
+			$sig = base64_decode(strtr($encoded_sig, '-_', '+/'));
+			$data = json_decode(base64_decode(strtr($payload, '-_', '+/'), true));
+			return $data;
+		}
+		return false;
+	}
+		
+	print_r(parsePageSignedRequest());
+?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
