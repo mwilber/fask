@@ -1,21 +1,3 @@
-<?php
-	$likesPage = false;
-	$signed_request = $_REQUEST['signed_request'];
-
-	function parsePageSignedRequest() {
-		if (isset($_REQUEST['signed_request'])) {
-			$encoded_sig = null;
-			$payload = null;
-			list($encoded_sig, $payload) = explode('.', $_REQUEST['signed_request'], 2);
-			$sig = base64_decode(strtr($encoded_sig, '-_', '+/'));
-			$data = json_decode(base64_decode(strtr($payload, '-_', '+/'), true));
-			return $data;
-		}
-		return false;
-	}
-		
-	print_r(parsePageSignedRequest());
-?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
@@ -43,10 +25,17 @@
 	
 	<script type="text/javascript">
 		
-		var facebookappid = '130551640347075';
-		//var facebookuserid = '<?php echo time(); ?>';
-		var logintarget = 'https://apps.facebook.com/appstarterkit/';
-
+		var FBconfig = {
+			app:{
+				id: '130551640347075',								// id of facebook application
+				perms: 'publish_stream, user_photos, user_likes'	// extended permissions required of htis app. Leave as empty string for no extended permissions.
+			},
+			login:{
+				method: 'popup',									// 'redirect' or 'popup'
+				target: 'https://apps.facebook.com/appstarterkit/'	// endpoint url if loginmethod is 'redirect'
+			}
+		};
+		
 	</script>
 	
 </head>
@@ -54,14 +43,17 @@
 
 <div id="container">
 	<div id="main" role="main">
-		<h1>Basic Sharing (no extended permissions required)</h1>
+		<strong>Basic Sharing (no extended permissions required)</strong>
 		<ul>
 			<li><a href="#" onclick="WallPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Wall Post</a></li>
 			<li><a href="#" onclick="ShareMessage('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png'); return false;">Private Message</a></li>
 			<li><a href="#" onclick="SendInvite('All the facebook basics'); return false;">App Invite</a></li>
+			<li><a href="#" onclick="AddToPage(); return false;">Add To Page</a></li>
 		</ul>
+		<strong>Login / Authorization</strong>
 		<ul>
-			<li><a href="#" onclick="AddToPage();">Add To Page</a></li>
+			<li><a href="#" onclick="Login(); return false;">Login</a></li>
+			<li><a href="#" onclick="Logout(); return false;">Logout</a></li>
 		</ul>
 	</div>
 	<div id="fb-root"></div>
@@ -72,6 +64,7 @@
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
 <script src="js/script.js"></script>
+<script src="js/fb.js"></script>
 <script>
 	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
 	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;

@@ -17,8 +17,6 @@
 	
 	if($signed_request = parsePageSignedRequest()) {
 		
-		print_r($signed_request);
-		
 		if($signed_request->page->liked) {
 			$likesPage = true;
 		}
