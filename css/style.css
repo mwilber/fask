@@ -210,6 +210,31 @@ table { border-collapse: collapse; border-spacing: 0; }
 	clear:both;
 }
 
+#jfmfs-dialog{
+	width:585px;
+	position:absolute;
+	top:10%;
+	left:10%;
+	background-color:#fff;
+	border:solid 5px #ccc;
+	display:none;
+}
+
+#jfmfs-dialog label{
+	float: left;
+	margin: 20px 0px 0px 10px;
+}
+
+#jfmfs-message{
+	width:565px;
+	margin:10px;
+	height:50px;
+}
+
+#jfmfs-dialog .button{
+	float:right;
+	margin:10px;
+}
 
 
 /* =============================================================================

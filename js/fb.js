@@ -3,6 +3,55 @@ var fb_auth = {
 	token: ''
 };
 
+function LikeGate(){
+	FB.api('/'+fb_auth.id+'/likes/'+FBconfig.likegate.targetid, function(response) {
+		if(response.error){
+			alert('User must be logged in.');
+		}else{
+			if( response.data.length > 0 ){
+		    	alert('You like this!');
+		    }else{
+		    	alert('Click the like button to the right.');
+		    }
+		}
+	});
+}
+
+function FriendPost(pLink, pTitle, pDescription, pImage, pCaption){
+	$("#jfmfs-container").jfmfs();
+	
+	$("#jfmfs-post").on("click", {
+			name: pTitle,
+			link: pLink,
+			picture: pImage,
+			caption: pCaption,
+			description: pDescription,
+		},
+		function(event){
+			var friendSelector = $("#jfmfs-container").data('jfmfs');
+	        var sendids = friendSelector.getSelectedIds();
+	        for( idx in sendids ){
+	            FB.api('/'+sendids[idx]+'/feed', 'post', {
+					name: event.data.name,
+					link: event.data.link,
+					picture: event.data.picture,
+					caption: event.data.caption,
+					description: event.data.description,
+					message: $('#jfmfs-message').val()
+				}, 
+				function(response) {
+	              if (!response || response.error) {
+	                alert('Error occured');
+	              } else {
+		        	$("#jfmfs-dialog").hide();
+	              }
+	         	});
+	        }
+		});
+	
+	$("#jfmfs-dialog").show();
+}
+
 function Login(){
 	FB.getLoginStatus(function(response) {
         if (response.status == "connected") {

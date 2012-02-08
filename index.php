@@ -20,6 +20,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/jquery.facebook.multifriend.select.css" />
 
 	<script src="js/libs/modernizr-2.0.6.min.js"></script>
 	
@@ -33,6 +34,10 @@
 			login:{
 				method: 'popup',									// 'redirect' or 'popup'
 				target: 'https://apps.facebook.com/appstarterkit/'	// endpoint url if loginmethod is 'redirect'
+			},
+			likegate:{
+				targetid: '130551640347075',
+				targeturl: 'http://www.facebook.com/apps/application.php?id=130551640347075'
 			}
 		};
 		
@@ -43,20 +48,33 @@
 
 <div id="container">
 	<div id="main" role="main">
-		<strong>Basic Sharing (no extended permissions required)</strong>
+		<!--! begin app content -->
+		<strong>Basic Features</strong>
 		<ul>
 			<li><a href="#" onclick="WallPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Wall Post</a></li>
 			<li><a href="#" onclick="ShareMessage('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png'); return false;">Private Message</a></li>
 			<li><a href="#" onclick="SendInvite('All the facebook basics'); return false;">App Invite</a></li>
-			<li><a href="#" onclick="AddToPage(); return false;">Add To Page</a></li>
+			<li><a href="#" onclick="AddToPage(); return false;">Add This App To Page Tab</a></li>
 		</ul>
 		<strong>Login / Authorization</strong>
 		<ul>
 			<li><a href="#" onclick="Login(); return false;">Login</a></li>
 			<li><a href="#" onclick="Logout(); return false;">Logout</a></li>
 		</ul>
+		<strong>Advanced Features (extended permissions required)</strong>
+		<ul>
+			<li><a href="#" onclick="FriendPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics. Sent to your Friends!', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Post to Friend's Wall</a> (read_stream,publish_stream)</li>
+			<li><a href="#" onclick="LikeGate(); return false;">Like Gate</a> (read_stream) <div class="fb-like" data-href="http://www.facebook.com/apps/application.php?id=130551640347075" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div></li>
+		</ul>
+		<!--! end app content -->
 	</div>
 	<div id="fb-root"></div>
+	<div id="jfmfs-dialog">
+		<a href="#" class="button" onclick="$(this).parent().hide(); return false;">Close</a>
+		<label>Message:</label><textarea id="jfmfs-message"></textarea>
+		<div id="jfmfs-container"></div>
+		<button id="jfmfs-post" class="button">POST</button>
+	</div>
 </div> <!--! end of #container -->
 
 <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>	
@@ -65,6 +83,7 @@
 
 <script src="js/script.js"></script>
 <script src="js/fb.js"></script>
+<script type="text/javascript" src="js/libs/jquery.facebook.multifriend.select.js"></script>
 <script>
 	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
 	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
