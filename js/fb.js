@@ -3,6 +3,10 @@ var fb_auth = {
 	token: ''
 };
 
+/////////////////////////////////////////////////////////////////////////////
+//	Advanced Functions
+/////////////////////////////////////////////////////////////////////////////
+
 function LikeGate(){
 	FB.api('/'+fb_auth.id+'/likes/'+FBconfig.likegate.targetid, function(response) {
 		if(response.error){
@@ -52,6 +56,10 @@ function FriendPost(pLink, pTitle, pDescription, pImage, pCaption){
 	$("#jfmfs-dialog").show();
 }
 
+/////////////////////////////////////////////////////////////////////////////
+//	Login & Authorization
+/////////////////////////////////////////////////////////////////////////////
+
 function Login(){
 	FB.getLoginStatus(function(response) {
         if (response.status == "connected") {
@@ -96,9 +104,13 @@ function Logout(){
 	});
 }
 
+/////////////////////////////////////////////////////////////////////////////
+//	Basic Functions
+/////////////////////////////////////////////////////////////////////////////
+
 // Add this app to a page tab
 function AddToPage(){
-	var addurl = 'http://www.facebook.com/dialog/pagetab?app_id='+FBconfig.app.id+'&next='+window.location;
+	var addurl = 'http://www.facebook.com/dialog/pagetab?app_id='+FBconfig.app.id+'&next='+FBconfig.app.site+'closer.html';
 	openpopup(addurl,'AddToPage',800,600);
 }
 

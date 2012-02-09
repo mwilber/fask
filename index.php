@@ -29,7 +29,8 @@
 		var FBconfig = {
 			app:{
 				id: '130551640347075',								// id of facebook application
-				perms: 'publish_stream, user_photos, user_likes'	// extended permissions required of htis app. Leave as empty string for no extended permissions.
+				perms: 'publish_stream, user_photos, user_likes',	// extended permissions required of htis app. Leave as empty string for no extended permissions.
+				site: 'http://staging.click3x.com/fask/'			// direct url to app server
 			},
 			login:{
 				method: 'popup',									// 'redirect' or 'popup'
@@ -65,6 +66,10 @@
 		<ul>
 			<li><a href="#" onclick="FriendPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics. Sent to your Friends!', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Post to Friend's Wall</a> (read_stream,publish_stream)</li>
 			<li><a href="#" onclick="LikeGate(); return false;">Like Gate</a> (read_stream) <div class="fb-like" data-href="http://www.facebook.com/apps/application.php?id=130551640347075" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div></li>
+		</ul>
+		<strong>Other</strong>
+		<ul>
+			<li>Bookmarklet -><a href="javascript:var appid=''; appid=prompt('Enter App ID:'); window.open('http://www.facebook.com/dialog/pagetab?app_id='+appid+'&next=http://www.facebook.com');">Add to Page</a></li>
 		</ul>
 		<!--! end app content -->
 	</div>
