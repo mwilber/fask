@@ -83,21 +83,6 @@ function Login(){
 	});
 }
 
-function HandleAuthorizedUser(authObj){
-	fb_auth.id = authObj.authResponse.userID;
-	fb_auth.token = authObj.authResponse.accessToken;
-	
-	if( fb_auth.id != '' && fb_auth.token != ''){
-		DebugOut('FB User logged in:');
-		DebugOut(fb_auth);
-	}
-}
-
-function HandleUnauthorizedUser(){
-	DebugOut('FB User NOT logged in. Try calling Login() method:');
-	DebugOut(fb_auth);
-}
-
 function Logout(){
 	FB.logout(function(response) {
 		console.log(response);
