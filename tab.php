@@ -54,7 +54,7 @@
 <body>
 <?php if($likesPage): ?>
 	<div id="main" class="wrapper like" style="">
-		<a id="get_started" href="index.php" target="_blank">Go To The Main Page</a>
+		<a id="get_started" href="https://apps.facebook.com/appstarterkit/" target="_blank">Go To The Main Page</a>
 	</div>
 <?php else: ?>
 	<div class="wrapper nolike" style="">
