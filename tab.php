@@ -56,15 +56,15 @@
 			app:{
 				id: '130551640347075',								// id of facebook application
 				perms: 'publish_stream, user_photos, user_likes',	// extended permissions required of htis app. Leave as empty string for no extended permissions.
-				site: 'http://staging.click3x.com/fask/'			// direct url to app server
+				site: 'http://fask.herokuapp.com/'					// direct url to app server
 			},
 			login:{
 				method: 'popup',									// 'redirect' or 'popup'
-				target: 'https://apps.facebook.com/appstarterkit/'	// endpoint url if loginmethod is 'redirect'
+				target: 'http://fask.herokuapp.com/'				// endpoint url if loginmethod is 'redirect'
 			},
 			likegate:{												// Not required for the tab app based like gate
 				targetid: '130551640347075',
-				targeturl: 'http://www.facebook.com/apps/application.php?id=130551640347075'
+				targeturl: 'http://www.facebook.com/greenzeta?sk=app_130551640347075'
 			}
 		};
 		
