@@ -8,7 +8,7 @@ FASK provides a ready made starting point for building facebook apps using the f
 It&rsquo;s built on the HTML5 Boilerplate (http://html5boilerplate.com/) and provides functions for many of the most commonly used facebook functions.
 
 Getting Started
--------------------------
+-----------------------------------
 
 1. Set up an app on the facebook developer site: https://developers.facebook.com/
 2. Open the index.html file and locate the FBconfig javascript object:
@@ -31,3 +31,10 @@ Getting Started
 
 3. To get up and running all you need to do is insert your app id in the FBconfig.app.id variable
 4. Adjust the other FBconfig variables as necessary for your app.
+5. Add your app specific javascript to the js/script.js file
+
+
+Facebook Login and Authorization
+-----------------------------------
+
+FASK supports both popup and redirect methods of facebook authorzation. Use the redirect method only if popup blockers become an issue.  Simply call the Login(); function at any point in your javascript on or after the page's OnLoad event is called. FASK will automatically determinte the user's authorization status based on the permissions set in FBconfig.app.perms. When using the popup method, the Login() function will call either HandleAuthorizedUser() or HandleUnauthorizedUser() in js/script.js based on the user's authorization status. HandleAuthorizedUser() will set the global variable fb_auth with the user's id number and authorization token for use in graph calls. Modify these functions as necessary for your app.

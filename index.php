@@ -57,7 +57,7 @@
 			FASK provides a ready made starting point for building facebook apps using the facebook javascript api.
 			It&rsquo;s built on the <a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a> and provides functions for many of the most commonly used facebook functions.
 		</p>
-		<a id="download" href="fask.zip"><img src="images/download.png"><br/>Download FASK 2.0.2</a>
+		<a id="download" href="fask.zip" onclick="_gaq.push(['_trackEvent', 'button3', 'clicked'])"><img src="images/download.png"><br/>Download FASK 2.0.2</a>
 		<h3>Basic Features</h3>
 		<ul>
 			<li><a href="#" onclick="WallPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Wall Post</a></li>
