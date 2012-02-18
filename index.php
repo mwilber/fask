@@ -51,7 +51,7 @@
 	<header></header>
 	<div id="main" role="main">
 		<!--! begin app content -->
-		<strong>Created by <a href="http://www.facebook.com/greenzeta?sk=app_309846011404">Internet Software Developer Matthew Wilber</a></strong>
+		<strong>Created by <a href="http://www.greenzeta.com" target="_blank">Internet Software Developer Matthew Wilber</a></strong>
 		<p>
 			FASK provides a ready made starting point for building facebook apps using the facebook javascript api.
 			It&rsquo;s built on the <a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a> and provides functions for many of the most commonly used facebook functions.
