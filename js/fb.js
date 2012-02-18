@@ -161,6 +161,6 @@ function SendInvite(pMessage){
 function SetFrame(){
 	var docheight = $("#container").height();
 	// Override detected height
-	// docheight = 1000;
+	docheight = 1000;
 	FB.Canvas.setSize({ width: 515, height: docheight });
 }
