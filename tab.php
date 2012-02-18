@@ -49,6 +49,27 @@
 	<link rel="stylesheet" href="css/style.css">
 
 	<script src="js/libs/modernizr-2.0.6.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		var FBconfig = {
+			app:{
+				id: '130551640347075',								// id of facebook application
+				perms: 'publish_stream, user_photos, user_likes',	// extended permissions required of htis app. Leave as empty string for no extended permissions.
+				site: 'http://staging.click3x.com/fask/'			// direct url to app server
+			},
+			login:{
+				method: 'popup',									// 'redirect' or 'popup'
+				target: 'https://apps.facebook.com/appstarterkit/'	// endpoint url if loginmethod is 'redirect'
+			},
+			likegate:{												// Not required for the tab app based like gate
+				targetid: '130551640347075',
+				targeturl: 'http://www.facebook.com/apps/application.php?id=130551640347075'
+			}
+		};
+		
+	</script>
+	
 </head>
 <body>
 <div id="container">
@@ -98,7 +119,7 @@
 	</div>
 </div> <!--! end of #container -->
 <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>	
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
 <script src="js/script.js"></script>
