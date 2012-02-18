@@ -17,7 +17,7 @@
 	<meta property="og:site_name" content="https://fask.herokuapp.com/" />
 	<meta property="fb:admins" content="631337813" />
 
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="viewport" content="width=520">
 
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/jquery.facebook.multifriend.select.css" />
