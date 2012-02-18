@@ -55,12 +55,14 @@ function HandleAuthorizedUser(authObj){
 	if( fb_auth.id != '' && fb_auth.token != ''){
 		DebugOut('FB User logged in:');
 		DebugOut(fb_auth);
+		alert('FB User '+fb_auth.id+' logged in:');
 	}
 }
 
 function HandleUnauthorizedUser(){
 	DebugOut('FB User NOT logged in. Try calling Login() method:');
 	DebugOut(fb_auth);
+	alert('FB User NOT logged in. Try calling Login() method:');
 }
 
 $(document).ready(function(){

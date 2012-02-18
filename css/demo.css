@@ -1,0 +1,40 @@
+body{
+	background-color:#d1d5e2;
+}
+
+header{
+	width:500px;
+	height:200px;
+	background-image:url('../images/fask.png');
+	background-position:center;
+}
+
+#main a#download{
+	display: block;
+	width:300px;
+	text-align: center;
+	background-color: #627aad;
+	color:#fff;
+	border-radius: 20px; 
+	-moz-border-radius: 20px; 
+	-webkit-border-radius: 20px; 
+	border:solid 2px #3b5998;
+	padding: 10px;
+	margin: 40px auto;
+	text-decoration: none;
+}
+
+#main{
+	width: 450px;
+margin: 0px auto;
+}
+
+#main a{
+	color:#3b5998;
+	font-size:12px;
+	font-weight:bold;
+}
+
+.fb-like{
+	width:150px;
+}

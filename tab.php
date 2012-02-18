@@ -61,7 +61,7 @@
 			},
 			login:{
 				method: 'popup',									// 'redirect' or 'popup'
-				target: 'http://fask.herokuapp.com/'				// endpoint url if loginmethod is 'redirect'
+				target: 'http://www.facebook.com/greenzeta?sk=app_130551640347075'				// endpoint url if loginmethod is 'redirect'
 			},
 			likegate:{												// Not required for the tab app based like gate
 				targetid: '130551640347075',
