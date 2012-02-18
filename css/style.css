@@ -253,7 +253,7 @@ margin: 0px auto;
 }
 
 #jfmfs-dialog{
-	width:585px;
+	width:480px;
 	position:absolute;
 	top:10%;
 	left:10%;
@@ -268,7 +268,7 @@ margin: 0px auto;
 }
 
 #jfmfs-message{
-	width:565px;
+	width:455px;
 	margin:10px;
 	height:50px;
 }
