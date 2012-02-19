@@ -85,6 +85,11 @@
 </head>
 <body>
 <div id="container">
+	<?php if(!isset($_REQUEST['signed_request'])): ?>
+	<p style="text-align:center; width:100%;">
+		<a href="http://www.facebook.com/greenzeta?sk=app_130551640347075" style="font-size: 14px;">View this page within facebook.</a>
+	</p>
+	<?php endif; ?>
 	<header>
 		<img src="images/fask.png" height="150" width="150"/>
 		<h2>Facebook App</h2>
