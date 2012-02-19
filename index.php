@@ -12,7 +12,7 @@
 	<meta name="author" content="Matthew Wilber">
 	<meta property="og:title" content="Facebook App Starter Kit" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="http://www.facebook.com/greenzeta?sk=app_130551640347075" />
+	<meta property="og:url" content="http://apps.facebook.com/appstarterkit/" />
 	<meta property="og:image" content="https://fask.herokuapp.com/images/fask.png" />
 	<meta property="og:site_name" content="https://fask.herokuapp.com/" />
 	<meta property="fb:admins" content="631337813" />
@@ -58,7 +58,7 @@
 			FASK provides a ready made starting point for building facebook apps using the facebook javascript api.
 			It&rsquo;s built on the <a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a> and provides javascript functions for the most commonly used facebook features.
 		</p>
-		<p>FASK is free to use in your projects as you see fit. If you use this project, please <a href="#" onclick="WallPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">share on facebook</a></p>
+		<p>FASK is free to use in your projects as you see fit. If you use this project, please <a href="#" onclick="WallPost('http://www.facebook.com/greenzeta?sk=app_130551640347075', 'Facebook App Starter Kit', 'FASK provides a ready made starting point for building facebook apps using the facebook javascript api.', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">share on facebook</a></p>
 		<a id="download" href="fask.zip" onclick="_gaq.push(['_trackEvent', 'Download', 'clicked', 'FASK 2.0.2'])"><img src="images/download.png"><br/>Download FASK 2.0.2</a>
 		<h3>Basic Features</h3>
 		<ul>

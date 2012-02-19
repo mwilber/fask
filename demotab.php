@@ -39,7 +39,7 @@
 	<meta name="author" content="Matthew Wilber">
 	<meta property="og:title" content="Facebook App Starter Kit" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="http://www.facebook.com/greenzeta?sk=app_130551640347075" />
+	<meta property="og:url" content="http://apps.facebook.com/appstarterkit/" />
 	<meta property="og:image" content="https://fask.herokuapp.com/images/fask.png" />
 	<meta property="og:site_name" content="https://fask.herokuapp.com/" />
 	<meta property="fb:admins" content="631337813" />
@@ -85,7 +85,7 @@
 			FASK provides a ready made starting point for building facebook apps using the facebook javascript api.
 			It&rsquo;s built on the <a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a> and provides javascript functions for the most commonly used facebook features.
 		</p>
-		<p>FASK is free to use in your projects as you see fit. If you use this project, please <a href="#" onclick="WallPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">share on facebook</a></p>
+		<p>FASK is free to use in your projects as you see fit. If you use this project, please <a href="#" onclick="WallPost('http://www.facebook.com/greenzeta?sk=app_130551640347075', 'Facebook App Starter Kit', 'FASK provides a ready made starting point for building facebook apps using the facebook javascript api.', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">share on facebook</a></p>
 		<?php if(!$likesPage): ?>
 		<h1>Click the "like" button above to explore the features.</h1>
 		<?php endif; ?>
@@ -93,7 +93,7 @@
 		<?php if($likesPage): ?>
 		<h3>Basic Features</h3>
 		<ul>
-			<li><a href="#" onclick="WallPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Wall Post</a></li>
+			<li><a href="#" onclick="WallPost('http://www.facebook.com/greenzeta?sk=app_130551640347075', 'Facebook App Starter Kit', 'FASK provides a ready made starting point for building facebook apps using the facebook javascript api.', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Wall Post</a></li>
 			<li><a href="#" onclick="ShareMessage('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png'); return false;">Private Message</a></li>
 			<li><a href="#" onclick="SendInvite('All the facebook basics'); return false;">App Invite</a></li>
 			<li><a href="#" onclick="AddToPage(); return false;">Add This App To Page Tab</a></li>
@@ -106,7 +106,7 @@
 		<h3>Advanced Features (extended permissions required)</h3>
 		<ul>
 			<li><a href="#" onclick="FriendPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics. Sent to your Friends!', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Post to Friend's Wall</a> (read_stream,publish_stream)</li>
-			<li><a href="#" onclick="LikeGate(); return false;">Like Gate</a> (read_stream) <div class="fb-like" data-href="http://www.facebook.com/greenzeta?sk=app_130551640347075" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div></li>
+			<li><a href="#" onclick="LikeGate(); return false;">Like Gate</a> (read_stream) <div class="fb-like" data-href="http://apps.facebook.com/appstarterkit/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div></li>
 		</ul>
 		<h3>Other</h3>
 		<ul>
