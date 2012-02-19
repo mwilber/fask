@@ -81,7 +81,7 @@
 		<strong>Created by <a href="http://www.greenzeta.com" target="_blank">Internet Software Developer Matthew Wilber</a></strong>
 		<p>
 			FASK provides a ready made starting point for building facebook apps using the facebook javascript api.
-			It&rsquo;s built on the <a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a> and provides functions for many of the most commonly used facebook functions.
+			It&rsquo;s built on the <a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a> and provides ready-made javascript functions for the most commonly used facebook features.
 		</p>
 		<?php if(!$likesPage): ?>
 		<h1>Click the "like" button above to explore the features.</h1>
