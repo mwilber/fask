@@ -1,13 +1,37 @@
 body{
-	background-color:#d1d5e2;
+	background-color:#151515;
+	color:#fff;
 }
 
 header{
-	width:500px;
-	height:200px;
-	background-image:url('../images/fask.png');
-	background-position:center;
+	width:480px;
+	height: 150px;
+	padding:20px;
+	margin-bottom:20px;
 }
+
+header img{
+	float:left;
+	display:block;
+	margin-right:20px;
+}
+
+header h1{
+	float:left;
+	display:block;
+	font-size:56px;
+	height: 56px;
+	margin: 0px;
+}
+
+header h2{
+	float:left;
+	display:block;
+	font-size:40px;
+	height: 40px;
+	margin: 54px 0px 0px 0px;
+}
+
 
 #main a#download{
 	display: block;
@@ -18,7 +42,7 @@ header{
 	border-radius: 20px; 
 	-moz-border-radius: 20px; 
 	-webkit-border-radius: 20px; 
-	border:solid 2px #3b5998;
+	border:solid 2px #627aad;
 	padding: 10px;
 	margin: 40px auto;
 	text-decoration: none;
@@ -30,11 +54,16 @@ margin: 0px auto;
 }
 
 #main a{
-	color:#3b5998;
+	color:#d1d5e2;
+	/*color:#627AAD;*/
 	font-size:12px;
 	font-weight:bold;
 }
 
 .fb-like{
 	width:150px;
+}
+
+#nolike{
+	text-align: center;
 }

@@ -1,8 +1,40 @@
+<?php
+	$likesPage = false;
+
+	function parsePageSignedRequest() {
+		if (isset($_REQUEST['signed_request'])) {
+			$encoded_sig = null;
+			$payload = null;
+			list($encoded_sig, $payload) = explode('.', $_REQUEST['signed_request'], 2);
+			$sig = base64_decode(strtr($encoded_sig, '-_', '+/'));
+			$data = json_decode(base64_decode(strtr($payload, '-_', '+/'), true));
+			return $data;
+		}
+		return false;
+	}
+	
+	
+	if(isset($_REQUEST['signed_request'])) {
+		if($signed_request = parsePageSignedRequest()) {
+				
+			if($signed_request->page->liked) {
+				$likesPage = true;
+			}
+			
+		}
+	}else{
+		$likesPage = true;
+	}
+?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -18,7 +50,8 @@
 	<meta property="fb:admins" content="631337813" />
 	<meta property="og:description" content="FASK provides a ready made starting point for building facebook apps using the facebook javascript api." />
 
-	<meta name="viewport" content="width=520">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/demo.css">
@@ -48,9 +81,12 @@
 	
 </head>
 <body>
-
 <div id="container">
-	<header></header>
+	<header>
+		<img src="images/fask.png" height="150" width="150"/>
+		<h2>Facebook App</h2>
+		<h1>Starter Kit</h1>	
+	</header>
 	<div id="main" role="main">
 		<!--! begin app content -->
 		<strong>Created by <a href="http://www.greenzeta.com" target="_blank">Internet Software Developer Matthew Wilber</a></strong>
@@ -60,6 +96,7 @@
 		</p>
 		<p>FASK is free to use in your projects as you see fit. If you use this project, please <a href="#" onclick="WallPost('http://www.facebook.com/greenzeta?sk=app_130551640347075', 'Facebook App Starter Kit', 'FASK provides a ready made starting point for building facebook apps using the facebook javascript api.', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">share on facebook</a></p>
 		<a id="download" href="fask.zip" onclick="_gaq.push(['_trackEvent', 'Download', 'clicked', 'FASK 2.0.2'])"><img src="images/download.png"><br/>Download FASK 2.0.2</a>
+		<?php if($likesPage): ?>
 		<h3>Basic Features</h3>
 		<ul>
 			<li><a href="#" onclick="WallPost('http://www.facebook.com/greenzeta?sk=app_130551640347075', 'Facebook App Starter Kit', 'FASK provides a ready made starting point for building facebook apps using the facebook javascript api.', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Wall Post</a></li>
@@ -81,6 +118,9 @@
 		<ul>
 			<li>Bookmarklet -><a href="javascript:var appid=''; appid=prompt('Enter App ID:'); window.open('http://www.facebook.com/dialog/pagetab?app_id='+appid+'&next=http://www.facebook.com');">Add to Page</a></li>
 		</ul>
+		<?php else: ?>
+		<h1 id="nolike">Click the &ldquo;like&rdquo; button above to explore the features.</h1>
+		<?php endif; ?>
 		<!--! end app content -->
 	</div>
 	<div id="fb-root"></div>
@@ -91,7 +131,6 @@
 		<button id="jfmfs-post" class="button">POST</button>
 	</div>
 </div> <!--! end of #container -->
-
 <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>	
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
