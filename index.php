@@ -75,7 +75,7 @@
 		<h3>Advanced Features (extended permissions required)</h3>
 		<ul>
 			<li><a href="#" onclick="FriendPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics. Sent to your Friends!', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Post to Friend's Wall</a> (read_stream,publish_stream)</li>
-			<li><a href="#" onclick="LikeGate(); return false;">Like Gate</a> (read_stream) <div class="fb-like" data-href="http://www.facebook.com/greenzeta?sk=app_130551640347075" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div></li>
+			<li><a href="#" onclick="LikeGate(); return false;">Like Gate</a> (read_stream) <div class="fb-like" data-href="http://apps.facebook.com/appstarterkit/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div></li>
 		</ul>
 		<h3>Other</h3>
 		<ul>
