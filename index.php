@@ -39,8 +39,8 @@
 				target: 'http://www.facebook.com/greenzeta?sk=app_130551640347075'				// endpoint url if loginmethod is 'redirect'
 			},
 			likegate:{												// Not required for the tab app based like gate
-				targetid: '130551640347075',
-				targeturl: 'http://www.facebook.com/greenzeta?sk=app_130551640347075'
+				targetid: '189170161189284',
+				targeturl: 'http://apps.facebook.com/appstarterkit/'
 			}
 		};
 		
