@@ -57,7 +57,7 @@
 			FASK provides a ready made starting point for building facebook apps using the facebook javascript api.
 			It&rsquo;s built on the <a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a> and provides functions for many of the most commonly used facebook functions.
 		</p>
-		<a id="download" href="fask.zip" onclick="_gaq.push(['_trackEvent', 'button3', 'clicked'])"><img src="images/download.png"><br/>Download FASK 2.0.2</a>
+		<a id="download" href="fask.zip" onclick="_gaq.push(['_trackEvent', 'Download', 'clicked', 'FASK 2.0.2'])"><img src="images/download.png"><br/>Download FASK 2.0.2</a>
 		<h3>Basic Features</h3>
 		<ul>
 			<li><a href="#" onclick="WallPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Wall Post</a></li>
@@ -97,11 +97,18 @@
 <script src="js/script.js"></script>
 <script src="js/fb.js"></script>
 <script type="text/javascript" src="js/libs/jquery.facebook.multifriend.select.js"></script>
-<script>
-	var _gaq=[['_setAccount','UA-76054-11'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
-	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g,s)}(document,'script'));
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-76054-11']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
 </script>
 
 <!--[if lt IE 7 ]>

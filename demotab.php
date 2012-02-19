@@ -86,7 +86,7 @@
 		<?php if(!$likesPage): ?>
 		<h1>Click the "like" button above to explore the features.</h1>
 		<?php endif; ?>
-		<a id="download" href="fask.zip" onclick="_gaq.push(['_trackEvent', 'button3', 'clicked'])"><img src="images/download.png"><br/>Download FASK 2.0.2</a>
+		<a id="download" href="fask.zip" onclick="_gaq.push(['_trackEvent', 'Download', 'clicked', 'FASK 2.0.2'])"><img src="images/download.png"><br/>Download FASK 2.0.2</a>
 		<?php if($likesPage): ?>
 		<h3>Basic Features</h3>
 		<ul>
