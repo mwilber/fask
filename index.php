@@ -16,11 +16,14 @@
 	
 	if(isset($_REQUEST['signed_request'])) {
 		if($signed_request = parsePageSignedRequest()) {
-				
-			if($signed_request->page->liked) {
+			
+			if( isset ($signed_request->page->liked)){
+				if($signed_request->page->liked) {
+					$likesPage = true;
+				}
+			}else{
 				$likesPage = true;
 			}
-			
 		}
 	}else{
 		$likesPage = true;
