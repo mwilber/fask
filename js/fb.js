@@ -76,6 +76,7 @@ function Login(){
         		// Popup method.
         		FB.login(function(response) {
 					if (response.status == "connected") {
+						//testing
 						DebugOut('user authorized');
 						HandleAuthorizedUser(response);
 					}else{
