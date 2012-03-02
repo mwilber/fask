@@ -85,7 +85,7 @@ function Login(){
 			    }, {scope:FBconfig.app.perms});
         	}else{
         		// Redirect method.
-        		window.top.location.href = "https://www.facebook.com/connect/uiserver.php?app_id=" +  encodeURIComponent(FBconfig.app.id) + "&next=" + encodeURIComponent(FBconfig.login.target) + "&display=page&perms=" + FBconfig.app.perms + "&fbconnect=1&method=permissions.request";
+        		//window.top.location.href = "https://www.facebook.com/connect/uiserver.php?app_id=" +  encodeURIComponent(FBconfig.app.id) + "&next=" + encodeURIComponent(FBconfig.login.target) + "&display=page&perms=" + FBconfig.app.perms + "&fbconnect=1&method=permissions.request";
         	}
 		}
 	});
