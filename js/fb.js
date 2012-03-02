@@ -71,6 +71,7 @@ function Login(){
         }else{
         	DebugOut('user not authorized. prompting permissions...');
         	// User is not connected request login and authorization
+        	DebugOut('login method: '+FBconfig.login.method);
         	if(FBconfig.login.method == 'popup'){
         		// Popup method.
         		FB.login(function(response) {
