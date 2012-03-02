@@ -89,4 +89,11 @@ $(document).ready(function(){
 	// Disable the like gate for demo purposes, change true to false to enable the like gate on load
 	HandleLikeStatus(true);
 	
+	
+	FB.getLoginStatus(function(response) {
+		DebugOut(response);
+        if (response.status == "connected") {
+        	LikeGate();
+		}
+	});	
 });
