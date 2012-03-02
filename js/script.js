@@ -63,11 +63,30 @@ function HandleUnauthorizedUser(){
 	DebugOut('FB User NOT logged in. Try calling Login() method:');
 	DebugOut(fb_auth);
 	alert('FB User NOT logged in. Try calling Login() method:');
+	
+	if( FBconfig.likegate.targeturl != '' ){
+		LikeGate();
+	}
+}
+
+function HandleLikeStatus(pLikeStatus){
+	if(pLikeStatus){
+		//user likes target
+		$('#nolike').hide();
+		$('#like').show();
+	}else{
+		//user does not like target
+		$('#nolike').show();
+		$('#like').hide();
+	}
 }
 
 $(document).ready(function(){
 	
 	FB.init({appId: FBconfig.app.id, status : true, cookie: true, xfbml : true});
 	SetFrame();
+	
+	// Disable the like gate for demo purposes, change true to false to enable the like gate on load
+	HandleLikeStatus(true);
 	
 });

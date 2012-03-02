@@ -10,7 +10,8 @@ var fb_auth = {
 function LikeGate(){
 	FB.api('/'+fb_auth.id+'/likes/'+FBconfig.likegate.targetid, function(response) {
 		if(response.error){
-			alert('User must be logged in.');
+			DebugOut('User not logged in. Calling Login() function');
+			Login();
 		}else{
 			if( response.data.length > 0 ){
 		    	alert('You like this!');
@@ -61,17 +62,23 @@ function FriendPost(pLink, pTitle, pDescription, pImage, pCaption){
 /////////////////////////////////////////////////////////////////////////////
 
 function Login(){
+	DebugOut('checking facebook status...');
 	FB.getLoginStatus(function(response) {
+		DebugOut(response);
         if (response.status == "connected") {
+        	DebugOut('user authorized');
 			HandleAuthorizedUser(response);
         }else{
+        	DebugOut('user not authorized. prompting permissions...');
         	// User is not connected request login and authorization
         	if(FBconfig.login.method == 'popup'){
         		// Popup method.
         		FB.login(function(response) {
 					if (response.status == "connected") {
+						DebugOut('user authorized');
 						HandleAuthorizedUser(response);
 					}else{
+						DebugOut('user not authorized');
 						HandleUnauthorizedUser();
 					}
 			    }, {scope:FBconfig.app.perms});

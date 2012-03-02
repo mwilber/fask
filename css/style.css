@@ -202,8 +202,12 @@ table { border-collapse: collapse; border-spacing: 0; }
    ========================================================================== */
 
 #container{
-	width:520px;
+	width:810px;
 	margin: 0px auto;
+}
+
+#like, #nolike{
+	display:none;
 }
 
 #fb-root{
