@@ -14,9 +14,9 @@ function LikeGate(){
 			Login();
 		}else{
 			if( response.data.length > 0 ){
-		    	alert('You like this!');
+		    	$('body').trigger('LikeStatus', true);
 		    }else{
-		    	alert('Click the like button to the right.');
+		    	$('body').trigger('LikeStatus', false);
 		    }
 		}
 	});
@@ -67,7 +67,7 @@ function Login(){
 		DebugOut(response);
         if (response.status == "connected") {
         	DebugOut('user authorized');
-			HandleAuthorizedUser(response);
+			$('body').trigger('AuthorizedUser', response);
         }else{
         	DebugOut('user not authorized. prompting permissions...');
         	// User is not connected request login and authorization
@@ -78,10 +78,10 @@ function Login(){
 					if (response.status == "connected") {
 						//testing
 						DebugOut('user authorized');
-						HandleAuthorizedUser(response);
+						$('body').trigger('AuthorizedUser', response);
 					}else{
 						DebugOut('user not authorized');
-						HandleUnauthorizedUser();
+						$('body').trigger('UnauthorizedUser');
 					}
 			    }, {scope:FBconfig.app.perms});
         	}else{

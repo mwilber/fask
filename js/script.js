@@ -2,6 +2,48 @@
 
 */
 
+/////////////////////////////////////////////////////////////////////////////
+//	Event Handlers
+/////////////////////////////////////////////////////////////////////////////
+
+$(document).ready(function(){
+	
+	FB.init({appId: FBconfig.app.id, status : true, cookie: true, xfbml : true});
+	SetFrame();
+	
+});
+
+$('body').bind('AuthorizedUser', function(event, authObj) {
+	fb_auth.id = authObj.authResponse.userID;
+	fb_auth.token = authObj.authResponse.accessToken;
+	
+	if( fb_auth.id != '' && fb_auth.token != ''){
+		DebugOut('FB User logged in:');
+		DebugOut(fb_auth);
+	}
+});
+
+$('body').bind('UnauthorizedUser', function() {
+	DebugOut('FB User NOT logged in. Try calling Login() method:');
+	DebugOut(fb_auth);
+});
+
+$('body').bind('LikeStatus', function(event, pLikeStatus) {
+	if(pLikeStatus){
+		//user likes target
+		DebugOut('user likes target');
+		window.location = 'index.html';
+	}else{
+		//user does not like target
+		DebugOut('user does not like target');
+		window.location = 'likegate.html';
+	}
+});
+
+/////////////////////////////////////////////////////////////////////////////
+//	Utility Functions
+/////////////////////////////////////////////////////////////////////////////
+
 // If the browser has a console, write to it.
 function DebugOut(newline){
 	try{
@@ -48,52 +90,3 @@ function openpopup(url,name,width,height)
 	window.open(url,name,attributes)
 }
 
-function HandleAuthorizedUser(authObj){
-	fb_auth.id = authObj.authResponse.userID;
-	fb_auth.token = authObj.authResponse.accessToken;
-	
-	if( fb_auth.id != '' && fb_auth.token != ''){
-		DebugOut('FB User logged in:');
-		DebugOut(fb_auth);
-		alert('FB User '+fb_auth.id+' logged in:');
-	}
-}
-
-function HandleUnauthorizedUser(){
-	DebugOut('FB User NOT logged in. Try calling Login() method:');
-	DebugOut(fb_auth);
-	alert('FB User NOT logged in. Try calling Login() method:');
-	
-	if( FBconfig.likegate.targeturl != '' ){
-		LikeGate();
-	}
-}
-
-function HandleLikeStatus(pLikeStatus){
-	if(pLikeStatus){
-		//user likes target
-		$('#nolike').hide();
-		$('#like').show();
-	}else{
-		//user does not like target
-		$('#nolike').show();
-		$('#like').hide();
-	}
-}
-
-$(document).ready(function(){
-	
-	FB.init({appId: FBconfig.app.id, status : true, cookie: true, xfbml : true});
-	SetFrame();
-	
-	// Disable the like gate for demo purposes, change true to false to enable the like gate on load
-	HandleLikeStatus(true);
-	
-	
-	FB.getLoginStatus(function(response) {
-		DebugOut(response);
-        if (response.status == "connected") {
-        	LikeGate();
-		}
-	});	
-});

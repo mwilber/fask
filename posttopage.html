@@ -33,12 +33,28 @@
 	
 	<script type="text/javascript" src="js/config.js"></script>
 	
+	<style type="text/css">
+		label{
+			clear:left;
+			float:left;
+			width:100px;
+			text-align: right;
+			margin-right:20px;
+			display:block;
+			margin-bottom:10px;
+		}
+		input, select, button{
+			float:left;
+			margin-bottom:10px;
+		}
+		input{
+			width:300px;
+		}
+	</style>
+
 </head>
 <body>
 <div id="container">
-	<p style="text-align:center; width:100%;">
-		<a href="http://www.facebook.com/greenzeta?sk=app_130551640347075" style="font-size: 14px;">View this page within facebook.</a>
-	</p>
 	<header>
 		<img src="images/fask.png" height="150" width="150"/>
 		<h2>Facebook App</h2>
@@ -46,37 +62,17 @@
 	</header>
 	<div id="main" role="main">
 		<!--! begin app content -->
-		<strong>Created by <a href="http://www.greenzeta.com" target="_blank">Internet Software Developer Matthew Wilber</a></strong>
-		<p>
-			FASK provides a ready made starting point for building facebook apps using the facebook javascript api.
-			It&rsquo;s built on the <a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a> and provides javascript functions for the most commonly used facebook features.
-		</p>
-		<p>FASK is free to use in your projects as you see fit. If you use this project, please <a href="#" onclick="WallPost('http://www.facebook.com/greenzeta?sk=app_130551640347075', 'Facebook App Starter Kit', 'FASK provides a ready made starting point for building facebook apps using the facebook javascript api.', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">share on facebook</a></p>
-		<a id="download" href="fask.zip" onclick="_gaq.push(['_trackEvent', 'Download', 'clicked', 'FASK 2.0.2'])"><img src="images/download.png"><br/>Download FASK 2.0.2</a>
-		
-		<h3>Basic Features</h3>
-		<ul>
-			<li><a href="#" onclick="WallPost('http://www.facebook.com/greenzeta?sk=app_130551640347075', 'Facebook App Starter Kit', 'FASK provides a ready made starting point for building facebook apps using the facebook javascript api.', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Wall Post</a></li>
-			<li><a href="#" onclick="ShareMessage('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics', 'https://fask.herokuapp.com/images/fask.png'); return false;">Private Message</a></li>
-			<li><a href="#" onclick="SendInvite('All the facebook basics'); return false;">App Invite</a></li>
-			<li><a href="addtopage.html">Add To Page</a></li>
-			<li><a href="posttopage.html">Post To Page</a></li>
-		</ul>
-		<h3>Login / Authorization</h3>
-		<ul>
-			<li><a href="#" onclick="Login(); return false;">Login</a></li>
-			<li><a href="#" onclick="Logout(); return false;">Logout</a></li>
-		</ul>
-		<h3>Advanced Features (extended permissions required)</h3>
-		<ul>
-			<li><a href="#" onclick="FriendPost('https://fask.herokuapp.com/', 'FacebookAppStarter', 'All the facebook basics. Sent to your Friends!', 'https://fask.herokuapp.com/images/fask.png', 'FASK'); return false;">Post to Friend's Wall</a> (read_stream,publish_stream)</li>
-			<li><a href="likegate.html">Like Gate</a> (read_stream) <div class="fb-like" data-href="http://www.facebook.com/greenzeta" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div></li>
-		</ul>
-		<h3>Other</h3>
-		<ul>
-			<li>Bookmarklet -><a href="javascript:var appid=''; appid=prompt('Enter App ID:'); window.open('http://www.facebook.com/dialog/pagetab?app_id='+appid+'&next=http://www.facebook.com');">Add to Page</a></li>
-		</ul>
-
+		<h3>Post a custom message to your pages</h3>
+		<form>
+			<label>Page:</label><select id="pages"></select>
+			<label>Message:</label><input id="postmessage" type="text"/>
+			<label>Title:</label><input id="posttitle" type="text"/>
+			<label>Link URL:</label><input id="postlinkurl" type="text"/>
+			<label>Image URL:</label><input id="postimageurl" type="text"/>
+			<label>Caption:</label><input id="postcaption" type="text"/>
+			<label>Description:</label><input id="postdescription" type="text"/>
+			<label>&nbsp;</label><button onclick="PostMessage(); return false;">POST</button>
+		</form>
 		<!--! end app content -->
 	</div>
 	<div id="fb-root"></div>
@@ -93,7 +89,88 @@
 
 <script src="js/script.js"></script>
 <script src="js/fb.js"></script>
-<script type="text/javascript" src="js/libs/jquery.facebook.multifriend.select.js"></script>
+<script type="text/javascript">
+
+	var page_access_token = "";
+
+	$(document).ready(function(){
+		Login();
+	});
+
+	$('body').bind('AuthorizedUser', function(event, authObj) {
+		FB.api('/me/permissions', function (response) {
+		    if(response.data[0].manage_pages){
+		    	GetPages();
+		    }else{
+		    	FB.ui({
+				    method: 'permissions.request',
+				    perms: 'manage_pages',
+				    display: 'popup'
+				    },function(response) {
+				        alert(response.toSource());
+				        if (response && response.perms) {
+				            GetPages();
+				        } else if (!response.perms){
+				            alert('User did not authorize permission(s).');
+				        }
+				});
+		    }
+		});
+	});
+		
+	function GetPages(){
+		FB.api('/me/accounts','get',{},
+		function(response){
+			DebugOut(response.data);
+			page_access_token = response.data;
+			
+			var options = $("#pages");
+			$.each(page_access_token, function() {
+				if( this.id == FBconfig.app.id ){
+					options.append($("<option />").val(this.id).text(this.name).attr('selected','selected'));
+				}else{
+					options.append($("<option />").val(this.id).text(this.name));	
+				}
+			});
+		});
+	}
+	
+	function PostMessage(){
+		
+		$.each(page_access_token, function() {
+		    //options.append($("<option />").val(this.id).text(this.name));
+		    if( $("#pages").val() == this.id ){
+		    	DebugOut('posting to: '+this.name);
+				HandlePost(this);
+				return false;
+		    }
+		});
+	}
+	
+	function HandlePost(datoken){
+	    $.post("https://graph.facebook.com/"+datoken.id+"/feed", 
+		{ 
+			access_token: datoken.access_token, 
+			name: $('#posttitle').val(),
+			link: $('#postlinkurl').val(),
+			picture: $('#postimageurl').val(),
+			caption: $('#postcaption').val(),
+			description: $('#postdescription').val(),
+			message: $('#postmessage').val()
+		},
+		function(data){
+			DebugOut(data);
+			if(data.id){
+				alert('post successful');
+			}else{
+				alert('post error. Check console for return details');
+			}
+		});
+	}
+	
+	
+	
+</script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
