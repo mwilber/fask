@@ -8,8 +8,10 @@ var FBconfig = {
 		method: 'popup',									// 'redirect' or 'popup'
 		target: 'http://www.facebook.com/greenzeta/app_130551640347075'				// endpoint url if loginmethod is 'redirect'
 	},
-	likegate:{												// Leave targetid empty if you do not use like gate
-		targetid: '102352989996',
-		targeturl: 'http://www.facebook.com/greenzeta'
+	likegate:{												
+		targetid: '102352989996',							// facebook id of target link
+		targeturl: 'http://www.facebook.com/greenzeta',		// url of target link
+		gatepage: 'likegate.html',							// like gate page
+		redirect: 'index.html'								// destination page for users who pass through like gate
 	}
 };

@@ -32,11 +32,11 @@ $('body').bind('LikeStatus', function(event, pLikeStatus) {
 	if(pLikeStatus){
 		//user likes target
 		DebugOut('user likes target');
-		window.location = 'index.html';
+		window.location = FBconfig.likegate.redirect;
 	}else{
 		//user does not like target
 		DebugOut('user does not like target');
-		window.location = 'likegate.html';
+		window.location = FBconfig.likegate.gatepage;
 	}
 });
 
