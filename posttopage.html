@@ -104,7 +104,7 @@
 		    }else{
 		    	FB.ui({
 				    method: 'permissions.request',
-				    perms: 'manage_pages',
+				    perms: 'manage_pages,publish_stream',
 				    display: 'popup'
 				    },function(response) {
 				        alert(response.toSource());
