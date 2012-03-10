@@ -2,7 +2,7 @@ var FBconfig = {
 	app:{
 		id: '130551640347075',								// id of facebook application
 		perms: 'publish_stream, user_photos, user_likes',	// extended permissions required of htis app. Leave as empty string for no extended permissions.
-		site: 'http://dev.mwilber.com/fask/'					// direct url to app server
+		site: 'http://fask.herokuapp.com/'					// direct url to app server
 	},
 	login:{
 		method: 'popup',									// 'redirect' or 'popup'
