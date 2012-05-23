@@ -1,11 +1,12 @@
 Facebook App Starter Kit (FASK)
 
 Created by Matthew Wilber
-http://www.greenzeta.com
-http://www.mwilber.com
+http://www.facebook.com/greenzeta
 
 FASK provides a ready made starting point for building facebook apps using the facebook javascript api.
 Itls built on the HTML5 Boilerplate (http://html5boilerplate.com/) and provides javascript functions for the most commonly used facebook features.
+
+## View the stock FASK install on facebook: http://www.facebook.com/greenzeta?sk=app_130551640347075
 
 FASK is free to use in your projects as you see fit. If you use this project, please share on facebook.
 
@@ -46,8 +47,6 @@ FASK supports both popup and redirect methods of facebook authorzation. Use the 
 
 Like Gate
 -----------------------------------
-The like gate works with the new facebook timeline layout and requires user interaction to work. 
-If you are using the like gate in a tab app, simply set the tab page to likegate.html. 
-For all other situations: 
-	First rename index.html and set the FBconfig.likegate.redirect value to the new name, 
-	then rename likegate.html to index.html and set the FBconfig.likegate.gatepage value to 'index.html'.
+There are two like gate options available. 
+* For a tab app, set the tab page to tab_likegate.php in the facebook app settings. Edit the like/nolike sections of that page accordingly.
+* For stand-alone apps and web sites: First rename index.html and set the FBconfig.likegate.redirect value to the new name, then rename likegate.html to index.html and set the FBconfig.likegate.gatepage value to 'index.html'.
