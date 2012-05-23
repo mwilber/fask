@@ -6,7 +6,7 @@ http://www.facebook.com/greenzeta
 FASK provides a ready made starting point for building facebook apps using the facebook javascript api.
 Itls built on the HTML5 Boilerplate (http://html5boilerplate.com/) and provides javascript functions for the most commonly used facebook features.
 
-## View the stock FASK install on facebook: http://www.facebook.com/greenzeta?sk=app_130551640347075
+## View the stock FASK install on facebook: http://www.facebook.com/greenzeta?sk=app_130551640347075 
 
 FASK is free to use in your projects as you see fit. If you use this project, please share on facebook.
 
