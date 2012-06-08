@@ -42,7 +42,7 @@ Getting Started
 Facebook Login and Authorization
 -----------------------------------
 
-FASK supports both popup and redirect methods of facebook authorzation. Use the redirect method only if popup blockers become an issue.  Simply call the Login(); function at any point in your javascript on or after the page's OnLoad event is called. FASK will automatically determinte the user's authorization status based on the permissions set in FBconfig.app.perms. When using the popup method, the Login() function will call either HandleAuthorizedUser() or HandleUnauthorizedUser() in js/script.js based on the user's authorization status. HandleAuthorizedUser() will set the global variable fb_auth with the user's id number and authorization token for use in graph calls. Modify these functions as necessary for your app.
+FASK supports both popup and redirect methods of facebook authorzation. Use the redirect method only if popup blockers become an issue.  Simply call the Login(); function at any point in your javascript on or after the page's OnLoad event is called. FASK will automatically determine the user's authorization status based on the permissions set in FBconfig.app.perms as shown above. When using the popup method, the Login() function will trigger one of two events: "AuthorizedUser" and "UnauthorizedUser". The file js/script.js has example event handlers which will set the global variable fb_auth with the user's id number and authorization token for use in graph calls. You may modify these functions or add additional event handlers for your app.
 
 
 Like Gate
