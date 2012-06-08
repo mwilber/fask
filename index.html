@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="FASK : The Facebook App Starter Kit" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>FASK</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mwilber/fask">View on GitHub</a>
+
+          <h1 id="project_title">FASK</h1>
+          <h2 id="project_tagline">The Facebook App Starter Kit</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mwilber/fask/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mwilber/fask/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>Created by Matthew Wilber: 
+<a href="http://www.facebook.com/greenzeta">http://www.facebook.com/greenzeta</a></p>
+
+<p>FASK provides a ready made starting point for building facebook apps using the facebook javascript api.
+It's built on the HTML5 Boilerplate (<a href="http://html5boilerplate.com/">http://html5boilerplate.com/</a>) and provides javascript functions for the most commonly used facebook features.</p>
+
+<p><strong>View the stock FASK install on facebook: <a href="http://www.facebook.com/greenzeta?sk=app_130551640347075">http://www.facebook.com/greenzeta?sk=app_130551640347075</a></strong></p>
+
+<p>FASK is free to use in your projects as you see fit. If you use this project, please share on facebook.</p>
+
+<h2>Getting Started</h2>
+
+<ol>
+<li>Set up an app on the facebook developer site: <a href="https://developers.facebook.com/">https://developers.facebook.com/</a>
+</li>
+<li>
+<p>Open the file js/config.js:</p>
+
+<pre><code>var FBconfig = {
+    app:{
+        id: 'XXXXXXXXXXXXX',                                // id of facebook application
+        perms: 'publish_stream, user_photos, user_likes',   // extended permissions required of htis app. Leave as empty string for no extended permissions.
+        site: 'http://www.XXXXXXXXXX.com/XXXXXX'            // direct url to app server
+    },
+    login:{
+        method: 'popup',                                    // 'redirect' or 'popup'
+        target: 'https://apps.facebook.com/XXXXXXXXXXX/'    // endpoint url if loginmethod is 'redirect'
+    },
+    likegate:{                                              
+        targetid: 'XXXXXXXXXXXXX',                          // facebook id of target link
+        targeturl: 'https://apps.facebook.com/XXXXXXX/',    // url of target link
+        gatepage: 'likegate.html',                          // like gate page
+        redirect: 'index.html'                              // destination page for users who pass through like gate
+    }
+};
+</code></pre>
+</li>
+<li><p>To get up and running all you need to do is insert your app id in the FBconfig.app.id variable</p></li>
+<li><p>Adjust the other FBconfig variables as necessary for your app.</p></li>
+<li><p>Add your app specific javascript to the js/script.js file</p></li>
+</ol><h2>Facebook Login and Authorization</h2>
+
+<p>FASK supports both popup and redirect methods of facebook authorzation. Use the redirect method only if popup blockers become an issue.  Simply call the Login(); function at any point in your javascript on or after the page's OnLoad event is called. FASK will automatically determine the user's authorization status based on the permissions set in FBconfig.app.perms as shown above. When using the popup method, the Login() function will trigger one of two events: "AuthorizedUser" and "UnauthorizedUser". The file js/script.js has example event handlers which will set the global variable fb_auth with the user's id number and authorization token for use in graph calls. You may modify these functions or add additional event handlers for your app.</p>
+
+<h2>Like Gate</h2>
+
+<p>There are two like gate options available. </p>
+
+<ul>
+<li>For a tab app, set the tab page to tab_likegate.php in the facebook app settings. Edit the like/nolike sections of that page accordingly.</li>
+<li>For stand-alone apps and web sites: First rename index.html and set the FBconfig.likegate.redirect value to the new name, then rename likegate.html to index.html and set the FBconfig.likegate.gatepage value to 'index.html'.</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">FASK maintained by <a href="https://github.com/mwilber">mwilber</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
